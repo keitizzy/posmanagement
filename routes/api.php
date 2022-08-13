@@ -301,6 +301,15 @@ Route::middleware(['auth:api', 'Is_Active'])->group(function () {
     Route::resource('shipments', 'ShipmentController');
     Route::get('shipments/export/Excel', 'ShipmentController@exportExcel');
 
+    //------------------------------- Sales Return --------------------------\\
+    //------------------------------------------------------------------\\
+
+    Route::resource('returns/sale', 'SalesReturnController');
+    Route::post('returns/sale/send/email', 'SalesReturnController@Send_Email');
+    Route::post('returns/sale/send/sms', 'SalesReturnController@Send_SMS');
+    Route::get('returns/sale/export/Excel', 'SalesReturnController@exportExcel');
+    Route::get('returns/sale/payment/{id}', 'SalesReturnController@Payment_Returns');
+    Route::post('returns/sale/delete/by_selection', 'SalesReturnController@delete_by_selection');
 
     //------------------------------- Payments  Sales --------------------------\\
     //------------------------------------------------------------------\\
@@ -334,15 +343,7 @@ Route::middleware(['auth:api', 'Is_Active'])->group(function () {
     Route::get('quotations/export/Excel', 'QuotationsController@exportExcel');
     Route::post('quotations/delete/by_selection', 'QuotationsController@delete_by_selection');
 
-    //------------------------------- Sales Return --------------------------\\
-    //------------------------------------------------------------------\\
-
-    Route::resource('returns/sale', 'SalesReturnController');
-    Route::post('returns/sale/send/email', 'SalesReturnController@Send_Email');
-    Route::post('returns/sale/send/sms', 'SalesReturnController@Send_SMS');
-    Route::get('returns/sale/export/Excel', 'SalesReturnController@exportExcel');
-    Route::get('returns/sale/payment/{id}', 'SalesReturnController@Payment_Returns');
-    Route::post('returns/sale/delete/by_selection', 'SalesReturnController@delete_by_selection');
+   
 
     //------------------------------- Purchases Return --------------------------\\
     //------------------------------------------------------------------\\
@@ -449,3 +450,4 @@ Route::middleware(['auth:api', 'Is_Active'])->group(function () {
 
     
     Route::get('Products/filter/{id}/{input}', 'ProductsController@Filter_Products');
+?>
