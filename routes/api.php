@@ -304,7 +304,7 @@ Route::middleware(['auth:api', 'Is_Active'])->group(function () {
     //------------------------------- Sales Return --------------------------\\
     //------------------------------------------------------------------\\
 
-    Route::resource('returns/sale', 'SalesReturnController');
+    //Route::resource('returns/sale', 'SalesReturnController');
     Route::post('returns/sale/send/email', 'SalesReturnController@Send_Email');
     Route::post('returns/sale/send/sms', 'SalesReturnController@Send_SMS');
     Route::get('returns/sale/export/Excel', 'SalesReturnController@exportExcel');
@@ -314,11 +314,15 @@ Route::middleware(['auth:api', 'Is_Active'])->group(function () {
     //------------------------------- Payments  Sales --------------------------\\
     //------------------------------------------------------------------\\
 
-    Route::resource('payment/sale', 'PaymentSalesController');
+    
+    //Route::resource('payment/sale', 'PaymentSalesController');
     Route::get('payment/sale/Number/Order', 'PaymentSalesController@getNumberOrder');
     Route::get('payment/sale/export/Excel', 'PaymentSalesController@exportExcel');
     Route::post('payment/sale/send/email', 'PaymentSalesController@SendEmail');
     Route::post('payment/sale/send/sms', 'PaymentSalesController@Send_SMS');
+    
+
+
 
     //------------------------------- Expenses --------------------------\\
     //------------------------------------------------------------------\\
@@ -348,7 +352,7 @@ Route::middleware(['auth:api', 'Is_Active'])->group(function () {
     //------------------------------- Purchases Return --------------------------\\
     //------------------------------------------------------------------\\
 
-    Route::resource('returns/purchase', 'PurchasesReturnController');
+    //Route::resource('returns/purchase', 'PurchasesReturnController');
     Route::post('returns/purchase/send/email', 'PurchasesReturnController@Send_Email');
     Route::post('returns/purchase/send/sms', 'PurchasesReturnController@Send_SMS');
     Route::get('returns/purchase/export/Excel', 'PurchasesReturnController@exportExcel');
